@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main_style.css">
+</head>
+<body>
+
+
+
+  <main class ="flex-container">
+    <section class="main-content">
+      <div class = 'BlogWrapper'>
+        <% if (blogs.length > 0) { %>
+          <% blogs.forEach(blog => { %>
+          <a class = "LinkID" href="/blogs/<%= blog._id %>">
+            <div class = BlogContent>
+              <h3 class="Blogtitle"><%= blog.title %></h3>
+              <p class="snippet"><%= blog.snippet %></p>
+            </div>
+          </a>
+        <% }) %>
+        <% } 
+          else { %>
+            <p>There are no blogs to display...</p>
+        <% } %>
+        </div>
+    </section>
+
+
+    
+  </main>
+ 
+</body>
+</html>
+
+
