@@ -7,16 +7,12 @@ html {
   font-size: 100%;
   font-family: 'Open Sans', sans-serif;
 
- 
 }
 
 body {
 
-  background-color: #f0e4d2;
+  background-color: #5b596a;
 
-
-
-  
 }
 
 a {
@@ -27,15 +23,16 @@ a {
 
 
 .navbar {
-  background-color: #f0e4d2;
+  background-color: #d6a979;
   display: flex;
-  border: 1px solid black;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
   min-height: 15vh;
-  margin: 0 15vh;
+  margin: 0 auto;
 
-  
+
+  // border: 1px solid black;
+
 }
 
 
@@ -43,26 +40,23 @@ a {
 
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: rgb(0, 0, 0);
   cursor: default;
-  border: 1px solid black;
-  
- 
-
+  padding: 2vh;
   // border: 1px solid black;
+  
   
 }
 
 
 .nav-menu {
   display: none;
-
   gap: 2rem;
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: 0 auto;
-
+  padding: 2vh;
     
 }
 
@@ -73,8 +67,9 @@ a {
   font-weight: bold;
   font-size: rem;
 
-
 }
+
+
 
 .nav-link {
   color: rgb(0, 0, 0);
@@ -149,16 +144,13 @@ a {
   display: flex;
   justify-content:  center;
   border: 1px solid black;
-  margin: 0 1rem;
-  
-
-
 
 }
 
 .main-content {
-  display: flex;
   border: 1px solid black;
+  justify-content: flex-start;
+
 
 
 }
@@ -167,18 +159,22 @@ a {
 .BlogContent {
   border: 2px solid black;
   align-items: center;
-  margin: 5vh 0;
-  background-color: white;
+  margin: 5vh auto;
+  background-color: rgb(234, 223, 240);
 
 }
 
 .Blogtitle {
   letter-spacing: 0.2rem;
-  padding: 0.5rem;
+  padding: 0.5vh;
 }
 
 .snippet {
-  padding: 0.5rem;
+  padding: 0.5vh;
+}
+
+.date {
+  padding: 0.5vh;
 }
 
 

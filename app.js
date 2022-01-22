@@ -48,8 +48,9 @@ app.get('/projects', (req, res) => {
 
 app.get('/blogs/create', (req, res) => {
   res.render('create', {title: "Create my new Blog"})
-});
 
+
+});
 
 
 app.get('/blogs', (req, res) => {
@@ -69,17 +70,17 @@ app.get('/blogs', (req, res) => {
 
 app.post('/blogs', (req, res) => {
   const blog = new Blog(req.body)
-  
   blog.save()
     .then(() => {
       res.redirect('/blogs')
+  
+
     })
     .catch((err) => {
       console.log(err);
     })
 
 });
-
 
 app.get('/blogs/:id', (req, res) => {
   const id = req.params.id;
@@ -89,6 +90,19 @@ app.get('/blogs/:id', (req, res) => {
     })
     .catch(err => {
       console.error(err);
+    });
+});
+
+
+app.delete('/blogs/:id', (req, res) => {
+  const id = req.params.id;
+  
+  Blog.findByIdAndDelete(id)
+    .then(result => {
+      res.json({ redirect: '/blogs' });
+    })
+    .catch(err => {
+      console.log(err);
     });
 });
 
@@ -123,58 +137,3 @@ app.get('/blogs/:id', (req, res) => {
 
 
 
-
-
-// // Render views
-// app.get('/', (req, res) => {
-//   res.redirect('/blogs')
-//   // res.render('blog', {title: "Home"});
-// });
-
-
-
-
-
-
-// // Mongoose and mongo sandbox routes
-// app.get('/add-blog', (req, res) => {
-//   const blog = new Blog({
-//     title: 'Yohoras New Blog',
-//     snippet: 'about my new blog',
-//     body: 'more about my new blog'
-//   });
-
-//   blog.save()
-//     .then((result) => {
-//       res.send(result)
-//       console.log(result)
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//     })
-
-// });
-
-
-// app.get('/all-blogs', (req, res) => {
-//   Blog.find()
-//    .then((result) => {
-//      res.send(result)
-//    })
-//    .catch((err) => {
-//      console.log(err)
-//    })
-// });
-
-
-// app.get('single-blog', (req, res) => {
-//   Blog.findById('61e95a1675da938825b175b0')
-//     .then((result) => {
-//       res.send(result)
-//     })
-
-//     .catch((err) => {
-//       console.log(err)
-//   });
-
-// });

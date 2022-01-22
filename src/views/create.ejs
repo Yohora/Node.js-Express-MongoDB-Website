@@ -10,9 +10,13 @@
 <body>
 
 
-
   <div class="create-blog content">
     <form action="/blogs" method="POST">
+
+      <label for="img">Select image:</label>
+      <input type="file" id="img" name="img" accept="image/*">
+      <input type="submit">
+
       <label for="title">Blog title:</label>
       <input type="text" id="title" name="title" required>
       <label for="snippet">Blog snippet:</label>
@@ -20,7 +24,7 @@
       <label for="body">Blog body:</label>
       <textarea id="body" name="body" required></textarea>
       <button>Submit</button>
-    </form>
+    </form>ew
   </div>
   
 </body>

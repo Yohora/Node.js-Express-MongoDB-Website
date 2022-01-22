@@ -1,8 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const date = Date()
 
 const blogSchema = new Schema({   // structure of data
+
+
+  // image: {
+
+  //   type: String,
+  //   data: Buffer,
+  //   required: true
+  // },
   
   title: {
     type: String,
@@ -17,7 +25,13 @@ const blogSchema = new Schema({   // structure of data
   body: {
     type: String,
     required: true
-  }
+  },
+
+  date: { 
+    type: String,
+    default: date
+  
+   }
 
 }, { 
   timestamps: true
@@ -29,6 +43,8 @@ const blogSchema = new Schema({   // structure of data
 
 const Blog = mongoose.model('Blog', blogSchema)
 module.exports = Blog;
+
+
 
 
 
