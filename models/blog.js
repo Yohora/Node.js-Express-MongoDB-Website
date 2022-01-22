@@ -4,7 +4,6 @@ const date = Date()
 
 const blogSchema = new Schema({   // structure of data
 
-
   // image: {
 
   //   type: String,

@@ -48,15 +48,8 @@ app.get('/projects', (req, res) => {
 });
 
 
-app.get('/blogs/create', (req, res) => {
-  res.render('create', {title: "Create my new Blog"})
-
-
-});
-
-
 // blog routes
-app.use(blogRoutes)
+app.use('/blogs', blogRoutes)
 
 
 
