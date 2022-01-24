@@ -1,7 +1,13 @@
 const Blog = require('../models/blog')
+const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 
 
-const blog_index = (req, res) => {
+
+
+
+const blog_home = (req, res) => {
   Blog.find().sort({createdAt: -1})
     .then((result) => {
       res.render('blog', {title: "Home", blogs: result})
@@ -12,10 +18,9 @@ const blog_index = (req, res) => {
     })
 };
 
-
 const blog_details = (req, res) => {
-
   const id = req.params.id;
+
   Blog.findById(id)
     .then(result => {
       res.render('details', { blog: result, title: 'Blog Details'});
@@ -23,9 +28,11 @@ const blog_details = (req, res) => {
     .catch(err => {
       console.error(err);
       res.render('404' , {title: 'Blog Not Found'})
-    });
+    })
+
 
 };
+
 
 
 const blog_create_get =  (req, res) => {
@@ -33,19 +40,64 @@ const blog_create_get =  (req, res) => {
 };
 
 
-
 const blog_create_post = (req, res) => {
+  console.log(req.file)
   const blog = new Blog(req.body)
   blog.save()
-    .then(() => {
-      res.redirect('/blogs')
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+  .then(() => {
+    res.redirect('/blogs')
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+
+ 
+};
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   var img = fs.readFileSync(req.file.path);
+//   var encode_image = img.toString('base64');
+
+
+
+//   const blog = new Blog({
+//     image: Buffer.from(encode_image, 'base64'),
+//     contentType: req.file.mimetype
+// })
+
+//   blog.save()
+//   .then(img => {
+//       res.json(img.id)
+//   })
+//   .catch(err => res.json(err))
+
+
+
+
+
+
+
+
 
 
 const blog_delete_post = (req, res) => {
@@ -62,15 +114,11 @@ const blog_delete_post = (req, res) => {
 
 }
 
-
-
-
-
 module.exports = {
-  blog_index,
-  blog_details,
+  blog_home,
   blog_create_get,
   blog_create_post,
+  blog_details,
   blog_delete_post
 }
 
@@ -82,12 +130,4 @@ module.exports = {
 
 
 
-
-
-
-
-
-
-
-
-
+// _id: new mongoose.Types.ObjectId(),

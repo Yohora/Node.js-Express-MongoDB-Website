@@ -10,11 +10,11 @@
 <body>
 
 
-  <div class="create-blog content">
-    <form action="/blogs" method="POST">
+  <div class="create-blog content"> 
+    <form action="/blogs" method="POST" enctype="multipart/form-data">
 
       <label for="img">Select image:</label>
-      <input type="file" id="img" name="img" accept="image/*">
+      <input type="file" id="image" name="image" accept="image/*">
       <input type="submit">
 
       <label for="title">Blog title:</label>

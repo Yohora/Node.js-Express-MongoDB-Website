@@ -15,7 +15,7 @@
           <% blogs.forEach(blog => { %>
           <a class = "LinkID" href="/blogs/<%= blog._id %>">
             <div class = BlogContent>
-              <img class = "postImg" src="#"></img>
+              <img class = "postImg" src="/uploads"<%= blog.image %>"></img>
               <h3 class="Blogtitle"><%= blog.title %></h3>
               <p class="snippet"><%= blog.snippet %></p>
               <p class="date"><%= blog.date.slice(0,15) %></p>
